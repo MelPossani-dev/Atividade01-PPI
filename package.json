@@ -1,0 +1,26 @@
+{
+  "name": "projetoumppi",
+  "version": "1.0.0",
+  "description": "Atividade avaliativa para Programação para Internet do curso ADS da Unoeste",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelPossani-dev/Atividade01-PPI.git"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "fullstack",
+    "html",
+    "css"
+  ],
+  "author": "Melissa Possani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelPossani-dev/Atividade01-PPI/issues"
+  },
+  "homepage": "https://github.com/MelPossani-dev/Atividade01-PPI#readme"
+}
