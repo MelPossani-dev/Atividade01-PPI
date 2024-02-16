@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/MelPossani-dev/Atividade01-PPI/issues"
   },
-  "homepage": "https://github.com/MelPossani-dev/Atividade01-PPI#readme"
+  "homepage": "https://github.com/MelPossani-dev/Atividade01-PPI#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "path": "^0.12.7",
+    "process": "^0.11.10"
+  }
 }
