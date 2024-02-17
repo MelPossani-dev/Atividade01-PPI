@@ -7,7 +7,7 @@ import autenticar from './seguranca/autenticar.js';
 const host='0.0.0.0'; //O ip 0.0.0.0 representa todas as interfaces (placas de rede) do computador onde essa aplicação for executada
 const porta = 3000;  //Porta identifica um programa em execução no host hospedeiro
 
-const app = express();
+const app = express(); //instância do Express
 
 app.use(express.urlencoded({extended: true})); //biblioteca qs
 
