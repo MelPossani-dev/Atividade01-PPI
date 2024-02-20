@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Atividade Avaliativa para a matéria Programaçao para internet",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +29,7 @@
     "express": "^4.18.2",
     "express-session": "^1.18.0",
     "path": "^0.12.7",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "start": "^5.1.0"
   }
 }

@@ -28,7 +28,7 @@ app.post('/login', (requisicao, resposta)=>{
     const { usuario, senha } = requisicao.body;
     if (usuario && senha && usuario === 'Melissa' && senha === '0903'){
         requisicao.session.usuarioLogado = true;
-        resposta.redirect('/cadastroCliente.html');
+        resposta.redirect('/index.html');
     } else{
         resposta.redirect('/login.html');
     }
