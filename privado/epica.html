@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="DJoz Template">
+    <meta name="keywords" content="DJoz, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+<style>
+  .container2 {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .ticket-form {
+            margin-top: 20px;
+        }
+        .ticket-type {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .ticket-type label {
+            margin-right: 10px;
+        }
+        .ticket-quantity {
+            width: 50px;
+            text-align: center;
+        }
+        .add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart button:hover {
+  background: #9c99d1;
+}
+
+.photos {
+    flex:1;
+    padding-right: 50px;
+   align-self: center;
+}
+    </style>
+
+    <title>Rock'n Festival - Epica</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/nowfont.css" type="text/css">
+    <link rel="stylesheet" href="css/rockville.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header header--normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="img/logo.jpeg"></a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a href="./index.html">Início</a></li>
+                                <li class="active"><a href="./about.html">Sobre</a></li>
+                                <li><a href="./cadastro.html">Cadastre sua banda</a></li>
+                                <li><a href="./contact.html">Contato</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    
+    <!--Conteúdo-->
+    <div class="container2">
+        <h1>Epica - Show Ao Vivo</h1>
+        <p>Uma das melhores bandas de metal sinfônico do mundo!
+           Epica é uma banda holandesa de metal sinfônico formada em 2002 na cidade de Reuver, 
+           Limburgo pelo guitarrista e vocalista Mark Jansen. Após sua saída do grupo de metal sinfônico After Forever em 2002, 
+           Jansen decidiu fundar sua própria banda, que inicialmente se chamava Sahara Dust.</p>
+           <p><b>Integrantes:</b></p>
+           <p>Simnone Simons - Vocais Principal</p>
+           <p>Mark Jansen - Guitarra e Vocais</p>
+           <p>Coen Janssen - Teclado e Piano</p>
+           <p>Ariën van Weesenbeek - Bateria</p>
+           <p>Isaac Delahaye - Guitarra Solo</p>
+           <p>Rob van der Loo - Baixo</p>
+           <hr>
+        <p>Data do show: 05 de Maio de 2024</p>
+        <p>Horário de abertura dos portões: 18:30</p>
+        <p>Horário de início do show: 20:00</p>
+
+        <div class="photos">
+            <img src="img/epica_banda.jpg">
+        </div>
+
+        <div class="ticket-form">
+            <div class="ticket-type">
+                <label for="meia">Meia-entrada:</label>
+                <input type="number" id="meia" class="ticket-quantity" min="0">
+            </div>
+            <div class="ticket-type">
+                <label for="inteira">Inteira:</label>
+                <input type="number" id="inteira" class="ticket-quantity" min="0">
+            </div>
+            <button class="add-to-cart">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+    <!--Fim do Conteúdo-->
+
+    <!-- Footer Section Begin -->
+   <footer class="footer footer--normal spad set-bg" data-setbg="img/footer-bg.png">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer__address">
+                    <ul>
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            <p>Desenvolvido por:</p>
+                            <h6>Melissa Fernanda Possani</h6>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <p>RA:</p>
+                            <h6>10482315215</h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/valida_doc"></script>
+    <script src="js/valida_cep.js"></script>
+
+</body>
+
+</html>
