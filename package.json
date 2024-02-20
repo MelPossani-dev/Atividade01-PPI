@@ -1,22 +1,19 @@
 {
   "name": "projetoumppi",
   "version": "1.0.0",
-  "description": "Atividade avaliativa para Programação para Internet do curso ADS da Unoeste",
+  "description": "Atividade Avaliativa para a matéria Programaçao para internet",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "start": "node index.js",  
     "type": "git",
     "url": "git+https://github.com/MelPossani-dev/Atividade01-PPI.git"
   },
   "keywords": [
-    "nodejs",
-    "javascript",
-    "fullstack",
+    "Programacao",
+    "FullStack",
+    "Javascript",
     "html",
     "css"
   ],
