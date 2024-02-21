@@ -78,10 +78,33 @@
                     <label for="uf" class="form-label">Estado</label>
                     <select class="form-select" id="uf" name="uf" required>
                       <option selected disabled value="">Escolha o estado...</option>
-                      <option>SP</option>
-                      <option>RJ</option>
-                      <option>PR</option>
-                      <option>MG</option>
+                      <option value="AC">AC</option>
+                      <option value="AL">AL</option>
+                      <option value="AP">AP</option>
+                      <option value="AM">AM</option>
+                      <option value="BA">BA</option>
+                      <option value="CE">CE</option>
+                      <option value="DF">DF </option>
+                      <option value="ES">ES</option>
+                      <option value="GO">GO</option>
+                      <option value="MA">MA</option>
+                      <option value="MT">MT</option>
+                      <option value="MS">MS</option>
+                      <option value="MG">MG</option>
+                      <option value="PA">PA</option>
+                      <option value="PB">PB</option>
+                      <option value="PR">PR</option>
+                      <option value="PE">PE</option>
+                      <option value="PI">PI</option>
+                      <option value="RJ">RJ</option>
+                      <option value="RN">RN</option>
+                      <option value="RS">RS</option>
+                      <option value="RO">RO</option>
+                      <option value="RR">RR</option>
+                      <option value="SC">SC</option>
+                      <option value="SP">SP</option>
+                      <option value="SE">SE</option>
+                      <option value="TO">TO</option>
                     </select>
                     <div class="invalid-feedback">Por favor, informe o estado.</div>
                   </div>
@@ -103,7 +126,7 @@
                 
                 <div class="col-12">
                     <button class="btn btn-primary" id='cadastrar' type="submit" onclick="confirmCad()" href="login.html">Cadastrar</button>
-                    <button class="btn btn-secondary" type="reset" value="Limpar">Limpar</button>
+                    <button class="btn btn-secondary" type="button" onclick="history.back()">Voltar</button>
                 </div>
             </form>
         </div>
