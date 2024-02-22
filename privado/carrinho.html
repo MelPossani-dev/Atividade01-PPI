@@ -24,81 +24,75 @@
               <tr>
                 <th>Produto</th>
                 <th>Preço</th>
-                <th>Quantidade</th>
-                <th>Total</th>
-                <th>-</th>
+                <th>Selecionar</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
                   <div class="product">
-                    <img src="https://picsum.photos/100/120" alt="" />
                     <div class="info">
-                      <div class="name">Nome do produto</div>
-                      <div class="category">Categoria</div>
+                      <div class="name">Dream Theater</div>
+                      <div class="category">04 de Maio de 2024</div>
                     </div>
                   </div>
                 </td>
                 <td>R$ 120</td>
                 <td>
                   <div class="qty">
-                    <button><i class="bx bx-minus"></i></button>
-                    <span>2</span>
-                    <button><i class="bx bx-plus"></i></button>
-                  </div>
-                </td>
-                <td>R$ 240</td>
-                <td>
-                  <button class="remove"><i class="bx bx-x"></i></button>
-                </td>
+                    <input class="form-check-input" type="checkbox" name="ticket-form" id="flexRadioDefault1">
+                    <label class="form-check-label" for="ticket-form">
+                    </label>
               </tr>
               <tr>
                 <td>
                   <div class="product">
-                    <img src="https://picsum.photos/100/120" alt="" />
                     <div class="info">
-                      <div class="name">Nome do produto</div>
-                      <div class="category">Categoria</div>
+                      <div class="name">Epica</div>
+                      <div class="category">05 de Maio de 2024</div>
                     </div>
                   </div>
                 </td>
                 <td>R$ 120</td>
                 <td>
                   <div class="qty">
-                    <button><i class="bx bx-minus"></i></button>
-                    <span>2</span>
-                    <button><i class="bx bx-plus"></i></button>
-                  </div>
-                </td>
-                <td>R$ 240</td>
-                <td>
-                  <button class="remove"><i class="bx bx-x"></i></button>
-                </td>
+                    <input class="form-check-input" type="checkbox" name="ticket-form" id="flexRadioDefault1">
+                    <label class="form-check-label" for="ticket-form">
+                    </label>
               </tr>
               <tr>
                 <td>
                   <div class="product">
-                    <img src="https://picsum.photos/100/120" alt="" />
                     <div class="info">
-                      <div class="name">Nome do produto</div>
-                      <div class="category">Categoria</div>
+                      <div class="name">Nightwish</div>
+                      <div class="category">06 de Maio de 2024</div>
                     </div>
                   </div>
                 </td>
                 <td>R$ 120</td>
                 <td>
                   <div class="qty">
-                    <button><i class="bx bx-minus"></i></button>
-                    <span>2</span>
-                    <button><i class="bx bx-plus"></i></button>
+                    <input class="form-check-input" type="checkbox" name="ticket-form" id="flexRadioDefault1">
+                    <label class="form-check-label" for="ticket-form">
+                    </label>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product">
+                    <div class="info">
+                      <div class="name">Iron Maiden</div>
+                      <div class="category">07 de Maio de 2024</div>
+                    </div>
                   </div>
                 </td>
-                <td>R$ 240</td>
+                <td>R$ 120</td>
                 <td>
-                  <button class="remove"><i class="bx bx-x"></i></button>
-                </td>
+                  <div class="qty">
+                    <input class="form-check-input" type="checkbox" name="ticket-form" id="flexRadioDefault1">
+                    <label class="form-check-label" for="ticket-form">
+                    </label>
               </tr>
+
             </tbody>
           </table>
         </section>
@@ -106,16 +100,31 @@
           <div class="box">
             <header>Resumo da compra</header>
             <div class="info">
-              <div><span>Sub-total</span><span>R$ 418</span></div>
+              <div><span>Sub-total</span><span>R$ 480,00</span></div>
               <div><span>Frete</span><span>Gratuito</span></div>              
             </div>
             <footer>
               <span>Total</span>
-              <span>R$ 418</span>
             </footer>
           </div>
-          <button>Finalizar Compra</button>
+          <button onclick="exibirAlerta()" href="carrinho.html">Finalizar Compra</button>
+          <script>
+            function exibirAlerta() {
+              alert("Compra Efetuada com Sucesso! Que a força esteja com você!");
+            }
+          </script>
         </aside>
+      </div>
+      <div class="formas-pagamento">
+        <section>
+          <label for="pagamento" class="formas-pagamento">Forma de Pagamento:</label>
+          <select class="formas-pagamento" id="pgto" name="pgto" required>
+            <option selected disabled value="">Selecione</option>
+            <option value="debito">Cartão Débito</option>
+            <option value="credito">Cartão Crédito</option>
+            <option value="pix">PIX</option>
+            <option value="boleto">Boleto</option>
+        </section>
       </div>
     </main>
   </body>
