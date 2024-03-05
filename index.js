@@ -40,31 +40,35 @@ app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando em http://${host}:${porta}`);
 })
-const cliente = new Cliente(2,
-    'Bruce Dickinson',
-    '(14) 99999-9999',
-    'brucedickinson@gmail.com',
-    'Rua Sei Lá, 1234',
-    'São Paulo',
-    'SP',
-    '123.456.789-01',
-    '07/08/1958');
-
+const cliente = new Cliente(1,
+                    '213.456.897-01',
+                    'Bruce Springsteen',
+                    '05/08/1957',
+                    '17200-000',
+                    'Rua dois tres',
+                    'Quem souber',
+                    'São Carlos',
+                    'SP',
+                    '(14) 88888-9999',
+                    'springsteen@gmail.com');
 //nos metodos assincronos é preciso manipular as promesses (promises)
 //Então, em algum momento o metodo trará uma resposta e o nosso programa
 //não saberá quando isso irá acontecer.
-cliente.gravar().then(() => {
-console.log('Cliente atualizado com sucesso');
+cliente.atualizar().then(() => {
+    console.log('Cliente Excluído com sucesso');
 }).catch((erro) => {
-console.log(erro.message);
+      console.log(erro.message);
 });
 
 /*const clienteQQ = new Cliente();
 
 let listaClientes = [];
 
-clienteQQ.consultar('Geraldo').then((lista) => {
-listaClientes = lista;
-}).catch(erro => {
-console.log(`Nao foi possível encontrar o cliente: ${erro.message}`);
-})*/
+clienteQQ.consultar('Bruce').then((listaClientes) => {
+    console.log('Clientes encontrados:');
+    for (const cliente of listaClientes){
+        console.log(cliente.toJSON());
+}
+}).catch((erro) => {
+    console.log(`Nao foi possível encontrar o cliente: ${erro.message}`);
+});*/

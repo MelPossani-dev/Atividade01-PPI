@@ -1,5 +1,5 @@
-import ClienteDAO from "../../Persistencia/ClientesDAO.js"; 
-export default class Clientes{
+import ClienteDAO from "../../Persistencia/ClienteDAO.js";
+export default class Cliente{
     #id_cliente;
     #cpf
     #nome;
@@ -11,7 +11,7 @@ export default class Clientes{
     #estado;
     #telefone;
     #email;
-    
+
 
     constructor(id_cliente = 0, cpf="", nome="", dt_nasc="", cep="", endereco="", bairro="", cidade="" , estado="", telefone="", email=""){  
         this.id_cliente = id_cliente;
@@ -26,71 +26,71 @@ export default class Clientes{
         this.telefone = telefone;  
         this.email = email;
     }
-    get id_cliente(){
+    get id_cliente (){
         return this.#id_cliente;
     }
-    set id_cliente(new_id_cliente){
-        this.#id_cliente = new_id_cliente;
+    set id_cliente(new_id){
+        this.#id_cliente = new_id;
     }
     get cpf (){
         return this.#cpf;
     }
     set cpf(new_cpf){
-        this.#cpf = new_cpf;
+       return this.#cpf = new_cpf;
     }
     get nome (){
         return this.#nome;
     }
     set nome (new_nome){
-        return this.#nome
+        return this.#nome = new_nome;
     }
     get dt_nasc (){
         return this.#dt_nasc;
     }
     set dt_nasc (new_dt_nasc){
-        return this.#dt_nasc
+        return this.#dt_nasc = new_dt_nasc;
     }
     get cep (){
         return this.#cep;
     }
     set cep (new_cep){
-        return this.#cep
+        return this.#cep = new_cep;
     }
     get endereco (){
         return this.#endereco;
     }
     set endereco (new_endereco){
-        return this.#endereco
+        return this.#endereco = new_endereco;
     }
     get bairro (){
         return this.#bairro;
     }
     set bairro (new_bairro){
-        return this.#bairro
+        return this.#bairro = new_bairro;
     }
     get cidade (){
         return this.#cidade;
     }
     set cidade (new_cidade){
-        return this.#cidade 
+        return this.#cidade = new_cidade;
     }
     get estado (){
         return this.#estado;
     }
     set estado (new_estado){
-        return this.#estado
+        return this.#estado = new_estado;
     }
     get telefone (){
         return this.#telefone;
     }
     set telefone (new_telefone){
-        return this.#telefone
+        return this.#telefone = new_telefone;
     }
     get email (){
         return this.#email;
     }
     set email (new_email){
-        return this.#email
+        return this.#email = new_email;
     }
     
     // Armazenar no banco de dados

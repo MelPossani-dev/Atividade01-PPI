@@ -1,5 +1,5 @@
 import conectar from "./conexao.js"; //não esquecer de colocar a extensão .js no final
-import Cliente from "../publico/scripts/cadastro.js";
+import Cliente from "../publico/js/Clientes.js";
 //DAO - Data Access Object
 export default class ClienteDAO{
     async gravar(cliente){
@@ -22,7 +22,7 @@ export default class ClienteDAO{
             ];
             const [resultados, campos] = await conexao.execute(sql,parametros);
             //funcionalidade interessante oferecida pela biblioteca mysql2
-            cliente.codigo = resultados.insertId_cliente; //recupera o id gerado pelo banco de dados
+            cliente.codigo = resultados.insertId; //recupera o id gerado pelo banco de dados
         }
     }
 
@@ -32,7 +32,7 @@ export default class ClienteDAO{
             const sql = `UPDATE cliente SET cpf = ?, nome = ?,
                          dt_nasc = ?, cep = ?, endereco = ?,
                          bairro = ?, cidade = ?, estado = ?, 
-                         teldone = ?, email = ? WHERE id_cliente = ?`;
+                         telefone = ?, email = ? WHERE id_cliente = ?`;
             const parametros = [
                 cliente.id_cliente,
                 cliente.cpf,
@@ -55,9 +55,9 @@ export default class ClienteDAO{
     async excluir(cliente){
         if (cliente instanceof Cliente){
             const conexao = await conectar();
-            const sql = `DELETE FROM cliente WHERE cpf = ?`;
+            const sql = `DELETE FROM cliente WHERE id_cliente = ?`;
             const parametros = [
-                cliente.cpf
+                cliente.id_cliente
             ]
             await conexao.execute(sql,parametros);
         }
