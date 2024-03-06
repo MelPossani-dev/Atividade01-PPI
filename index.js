@@ -39,7 +39,7 @@ app.listen(porta, host, ()=>{
 })
 const cliente = new Cliente(0,
                     '299.364.902-09',
-                    'ulano de Tal da Silva',
+                    'Fulano de Tal da Silva',
                     '05/09/1946',
                     '17200-111',
                     'Rua Sei Lá',
@@ -49,10 +49,10 @@ const cliente = new Cliente(0,
                     '(14) 23333-9999',
                     'otalfulano@gmail.com');
 
-cliente.cadastrar().then(() => {
-    console.log('Cliente Excluido com sucesso');
+cliente.atualizar().then(() => {
+    console.log('Atualizado');
 }).catch((erro) => {
-      console.log(erro.message);
+    console.log(erro.message);
 });
 
 /*const clienteQQ = new Cliente();

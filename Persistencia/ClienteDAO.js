@@ -50,7 +50,6 @@ export default class ClienteDAO{
                 ];
     
             await conexao.execute(sql, parametros);
-            alert("Cadastro efetuado com sucesso!");
                 
             }
         } 
@@ -63,7 +62,6 @@ export default class ClienteDAO{
                 cliente.cpf
             ]
             await conexao.execute(sql,parametros);
-            alert("Cadastro excluído com sucesso!");
         }
     }
     
