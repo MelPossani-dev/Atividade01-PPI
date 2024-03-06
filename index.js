@@ -3,7 +3,7 @@ import process from 'process';
 import path from 'path';
 import session from 'express-session';
 import autenticar from './seguranca/autenticar.js';
-import Cliente from './publico/js/Clientes.js';
+import Cliente from './Modelos/Clientes.js';
 
 const host='0.0.0.0'; //O ip 0.0.0.0 representa todas as interfaces (placas de rede) do computador onde essa aplicação for executada
 const porta = 3000;  //Porta identifica um programa em execução no host hospedeiro
@@ -40,9 +40,9 @@ app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando em http://${host}:${porta}`);
 })
-/*const cliente = new Cliente(1,
+const cliente = new Cliente(1,
                     '299.364.902-09',
-                    'Freddie Mercury',
+                    'Freddie Krueger',
                     '05/09/1946',
                     '17200-111',
                     'Rua Sei Lá',

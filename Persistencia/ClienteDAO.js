@@ -1,5 +1,5 @@
 import conectar from "./conexao.js"; //não esquecer de colocar a extensão .js no final
-import Cliente from "../publico/js/Clientes.js";
+import Cliente from  "../Modelos/Clientes.js";
 //DAO - Data Access Object
 export default class ClienteDAO{
 
@@ -24,7 +24,7 @@ export default class ClienteDAO{
             const [resultados, campos] = await conexao.execute(sql,parametros);
             //funcionalidade interessante oferecida pela biblioteca mysql2
             cliente.codigo = resultados.insertId; //recupera o id gerado pelo banco de dados
-            alert("Cadastro efetuado com sucesso!");
+            
         }
  }
 
