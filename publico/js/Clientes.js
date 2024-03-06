@@ -94,9 +94,9 @@ export default class Cliente{
     }
     
     // Armazenar no banco de dados
-    async gravar(){
+    async cadastrar(){
         const dao = new ClienteDAO();
-        await dao.gravar(this);
+        await dao.cadastrar(this);
     }
     async atualizar(){
         const dao = new ClienteDAO();

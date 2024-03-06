@@ -5,14 +5,12 @@ import session from 'express-session';
 import autenticar from './seguranca/autenticar.js';
 import Cliente from './publico/js/Clientes.js';
 
-const host='0.0.0.0'; //O ip 0.0.0.0 representa todas as interfaces (placas de rede) do computador onde essa aplicação for executada
-const porta = 3000;  //Porta identifica um programa em execução no host hospedeiro
-const app = express(); //instância do Express
+const host='0.0.0.0';
+const porta = 3000; 
+const app = express(); 
 
-app.use(express.urlencoded({extended: true})); //biblioteca qs
+app.use(express.urlencoded({extended: true}));
 
-
-//gerencie uma sessão como sendo uma espécie de memória adquirida pelo servidor para lembrar com quem ele conversa
 app.use(session({
     secret: '$&n#@',
     resave: false,
@@ -22,7 +20,6 @@ app.use(session({
     }
 }))
 
-//O express oferece funcionalidades para permitir que conteúdo estático seja fornecido
 app.use(express.static(path.join(process.cwd(), 'publico')));
 
 app.post('/login', (requisicao, resposta)=>{
@@ -40,9 +37,9 @@ app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando em http://${host}:${porta}`);
 })
-const cliente = new Cliente(1,
+const cliente = new Cliente(0,
                     '299.364.902-09',
-                    'Freddie Krueger',
+                    'ulano de Tal da Silva',
                     '05/09/1946',
                     '17200-111',
                     'Rua Sei Lá',
@@ -50,12 +47,10 @@ const cliente = new Cliente(1,
                     'São Paulo',
                     'SP',
                     '(14) 23333-9999',
-                    'freddiequeen@gmail.com');
-//nos metodos assincronos é preciso manipular as promesses (promises)
-//Então, em algum momento o metodo trará uma resposta e o nosso programa
-//não saberá quando isso irá acontecer.
-cliente.atualizar().then(() => {
-    console.log('Cliente Atualizado com sucesso');
+                    'otalfulano@gmail.com');
+
+cliente.cadastrar().then(() => {
+    console.log('Cliente Excluido com sucesso');
 }).catch((erro) => {
       console.log(erro.message);
 });

@@ -1,10 +1,10 @@
-import conectar from "./conexao.js"; //não esquecer de colocar a extensão .js no final
+import conectar from "./conexao.js"; 
 import Cliente from "../publico/js/Clientes.js";
 
 //DAO - Data Access Object
 export default class ClienteDAO{
 
-    async gravar(cliente){
+    async cadastrar(cliente){
         if (cliente instanceof Cliente){
             const conexao = await conectar();
             const sql = `INSERT INTO cliente (cpf, nome, dt_nasc, cep, endereco, bairro,
@@ -23,8 +23,7 @@ export default class ClienteDAO{
                 cliente.email
             ];
             const [resultados, campos] = await conexao.execute(sql,parametros);
-            //funcionalidade interessante oferecida pela biblioteca mysql2
-            cliente.codigo = resultados.insertId; //recupera o id gerado pelo banco de dados
+            cliente.codigo = resultados.insertId;
             
         }
  }
@@ -59,23 +58,21 @@ export default class ClienteDAO{
     async excluir(cliente){
         if (cliente instanceof Cliente){
             const conexao = await conectar();
-            const sql = `DELETE FROM cliente WHERE id_cliente = ?`;
+            const sql = `DELETE FROM cliente WHERE cpf = ?`;
             const parametros = [
-                cliente.id_cliente
+                cliente.cpf
             ]
             await conexao.execute(sql,parametros);
             alert("Cadastro excluído com sucesso!");
         }
     }
-
-    //termo de pesquisa pode ser o código do cliente ou ainda o nome
     
     async consultar(termoDePesquisa){
         if (termoDePesquisa === undefined){
             termoDePesquisa = "";
         }
         let sql="";
-        if (isNaN(termoDePesquisa)){ //termo de pesquina não é um número
+        if (isNaN(termoDePesquisa)){
             sql = `SELECT * FROM cliente WHERE nome LIKE ?`;
             termoDePesquisa= '%' + termoDePesquisa + '%';
         }
@@ -85,7 +82,6 @@ export default class ClienteDAO{
 
         const conexao = await conectar();
         const [registros] = await conexao.execute(sql,[termoDePesquisa]);
-        //Utilizar os registros encontrados para criar novos objetos do tipo cliente
         let listaClientes = [];
         for (const registro of registros){
             const cliente = new Cliente(
