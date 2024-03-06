@@ -1,5 +1,6 @@
 import conectar from "./conexao.js"; //não esquecer de colocar a extensão .js no final
-import Cliente from  "../Modelos/Clientes.js";
+import Cliente from "../publico/js/Clientes.js";
+
 //DAO - Data Access Object
 export default class ClienteDAO{
 
