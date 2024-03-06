@@ -37,33 +37,33 @@ app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando em http://${host}:${porta}`);
 })
-const cliente = new Cliente(0,
-                    '299.364.902-09',
-                    'Fulano de Tal da Silva',
+const cliente = new Cliente(1,
+                    '299.444.555-00',
+                    'Beltrano Fulano da Silva',
                     '05/09/1946',
-                    '17200-111',
-                    'Rua Sei Lá',
+                    '17200-000',
+                    'Rua Não sei',
                     'Quem sabe né?',
-                    'São Paulo',
+                    'Jaú',
                     'SP',
                     '(14) 23333-9999',
                     'otalfulano@gmail.com');
 
-cliente.atualizar().then(() => {
-    console.log('Atualizado');
+/*cliente.cadastrar().then(() => {
+    console.log('Cadastrado!');
 }).catch((erro) => {
     console.log(erro.message);
-});
+});*/
 
-/*const clienteQQ = new Cliente();
+const clienteQQ = new Cliente();
 
 let listaClientes = [];
 
-clienteQQ.consultar('Bruce').then((listaClientes) => {
+clienteQQ.consultar('Fulano').then((listaClientes) => {
     console.log('Clientes encontrados:');
     for (const cliente of listaClientes){
         console.log(cliente.toJSON());
 }
 }).catch((erro) => {
     console.log(`Nao foi possível encontrar o cliente: ${erro.message}`);
-});*/
+});
