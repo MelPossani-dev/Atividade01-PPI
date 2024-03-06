@@ -2,6 +2,7 @@ import conectar from "./conexao.js"; //não esquecer de colocar a extensão .js 
 import Cliente from "../publico/js/Clientes.js";
 //DAO - Data Access Object
 export default class ClienteDAO{
+
     async gravar(cliente){
         if (cliente instanceof Cliente){
             const conexao = await conectar();
@@ -23,18 +24,18 @@ export default class ClienteDAO{
             const [resultados, campos] = await conexao.execute(sql,parametros);
             //funcionalidade interessante oferecida pela biblioteca mysql2
             cliente.codigo = resultados.insertId; //recupera o id gerado pelo banco de dados
+            alert("Cadastro efetuado com sucesso!");
         }
-    }
+ }
 
-    async atualizar(cliente){
-        if (cliente instanceof Cliente){
+    async atualizar(cliente) {
+        if (cliente instanceof Cliente) {
             const conexao = await conectar();
             const sql = `UPDATE cliente SET cpf = ?, nome = ?,
-                         dt_nasc = ?, cep = ?, endereco = ?,
-                         bairro = ?, cidade = ?, estado = ?, 
-                         telefone = ?, email = ? WHERE id_cliente = ?`;
+                             dt_nasc = ?, cep = ?, endereco = ?,
+                             bairro = ?, cidade = ?, estado = ?, 
+                             telefone = ?, email = ? WHERE id_cliente = ?`;
             const parametros = [
-                cliente.id_cliente,
                 cliente.cpf,
                 cliente.nome,
                 cliente.dt_nasc,
@@ -44,14 +45,16 @@ export default class ClienteDAO{
                 cliente.cidade,
                 cliente.estado,
                 cliente.telefone,
-                cliente.email
-            ];
-
-           await conexao.execute(sql,parametros);
-           
-        }
-    }
-
+                cliente.email,
+                cliente.id_cliente
+                ];
+    
+            await conexao.execute(sql, parametros);
+            alert("Cadastro efetuado com sucesso!");
+                
+            }
+        } 
+       
     async excluir(cliente){
         if (cliente instanceof Cliente){
             const conexao = await conectar();
@@ -60,6 +63,7 @@ export default class ClienteDAO{
                 cliente.id_cliente
             ]
             await conexao.execute(sql,parametros);
+            alert("Cadastro excluído com sucesso!");
         }
     }
 

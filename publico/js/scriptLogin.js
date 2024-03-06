@@ -11,3 +11,7 @@ function validar(e) {
 }
 
 form.addEventListener('submit', validar);
+
+function limparDados() {
+    alert("Dados de cadastro limpos com sucesso!");
+}

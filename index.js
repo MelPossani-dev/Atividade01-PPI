@@ -40,22 +40,22 @@ app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando em http://${host}:${porta}`);
 })
-const cliente = new Cliente(1,
-                    '213.456.897-01',
-                    'Bruce Springsteen',
-                    '05/08/1957',
-                    '17200-000',
-                    'Rua dois tres',
-                    'Quem souber',
-                    'São Carlos',
+/*const cliente = new Cliente(1,
+                    '299.364.902-09',
+                    'Freddie Mercury',
+                    '05/09/1946',
+                    '17200-111',
+                    'Rua Sei Lá',
+                    'Quem sabe né?',
+                    'São Paulo',
                     'SP',
-                    '(14) 88888-9999',
-                    'springsteen@gmail.com');
+                    '(14) 23333-9999',
+                    'freddiequeen@gmail.com');
 //nos metodos assincronos é preciso manipular as promesses (promises)
 //Então, em algum momento o metodo trará uma resposta e o nosso programa
 //não saberá quando isso irá acontecer.
 cliente.atualizar().then(() => {
-    console.log('Cliente Excluído com sucesso');
+    console.log('Cliente Atualizado com sucesso');
 }).catch((erro) => {
       console.log(erro.message);
 });

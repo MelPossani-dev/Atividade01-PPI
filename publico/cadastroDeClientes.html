@@ -7,10 +7,8 @@
         <style>
             .titulo-cadastro {
                     text-align: center;
-                    margin-bottom: 20px;
-}
-
-
+                    margin-bottom: 50px;
+        }
         </style>
 
         <title>Cadastro de Clientes</title>
@@ -125,8 +123,10 @@
              <br>
                 
                 <div class="col-12">
-                    <button class="btn btn-primary" id='cadastrar' type="submit" onclick="confirmCad()" href="login.html">Cadastrar</button>
-                    <button class="btn btn-secondary" type="button" onclick="history.back()">Voltar</button>
+                    <button class="btn btn-primary" onclick="gravar(cliente)">Cadastrar</button>
+                    <button class="btn btn-secondary" onclick="atualizar(cliente)">Atualizar</button>
+                    <button class="btn btn-secondary" onclick="excluir(cliente)">Excluir</button>
+                    <button class="btn btn-secondary" onclick="history.back()" href="index.html">Voltar</button>
                 </div>
             </form>
         </div>
@@ -175,6 +175,8 @@
     <script src="./js/validaCPF.js"></script>
     <script src="./js/validaCEP.js"></script>
     <script src="./js/confimCad.js"></script> 
+    <script src="../publico/js/Clientes.js"></script>
+    <script src="../Persistencia/ClienteDAO.js"></script>
     <!-- JavaScript -->
 
     </body>
