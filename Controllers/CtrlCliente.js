@@ -1,6 +1,6 @@
 import Cliente from "../Modelos/Clientes.js";
 
-export default class ClienteCtrl{
+export default class CtrlCliente{
 
     //Esta Classe terá a responsabilidade de traduzir pedidos HTTP em 
     //comandos internos da aplicação
@@ -10,7 +10,7 @@ export default class ClienteCtrl{
     //Será necessário manipular requisições HTTP
     //Requisições HTTP (GET, POST, PUT ou PATCH, DELETE)
 
-    //Camada de controle será síncrona, então iremos resolver os métodos assíncronos (promises)
+    //Camada de controle será síncrona, então resolveremos os métodos assíncronos (promises)
 
     gravar(requisicao, resposta){
 
@@ -42,7 +42,7 @@ export default class ClienteCtrl{
                         "mensagem": "Cliente gravado com sucesso!",
                         "codigo_cliente": cliente.codigo
                     });
-                }).catch((erro) =>{
+                }).catch((erro)=>{
                     resposta.status(500);
                     resposta.json({
                         "status":false,
@@ -61,9 +61,9 @@ export default class ClienteCtrl{
         else{
             resposta.status(405);
             resposta.json({
-                "status":false,
-                "mensagem": "Requisição inválida! Esperando o método POST e dados no formato JSON para gravar um cliente!"
-            })
+            "status":false,
+            "mensagem": "Requisição inválida! Esperando o método POST e dados no formato JSON para gravar um cliente!"
+            });
         }
     }
 
@@ -94,7 +94,7 @@ export default class ClienteCtrl{
                         "mensagem": "Cliente atualizado com sucesso!",
                     })
                 })
-                .catch((erro) =>{
+                .catch((erro)=>{
                     resposta.status(500);
                     resposta.json({
                         "status":false,
@@ -118,12 +118,11 @@ export default class ClienteCtrl{
             })
         }
     }
-
     excluir(requisicao, resposta){
         resposta.type('application/json');
         if (requisicao.method === "DELETE"){
             //o código do cliente que será excluído será extraído da url
-            const codigo = requisicao.params.id_cliente;
+            const id_cliente = requisicao.params.id_cliente;
             if (id_cliente && id_cliente > 0){
                 const cliente = new Cliente(id_cliente);
                 cliente.excluir()
@@ -169,13 +168,18 @@ export default class ClienteCtrl{
                 resposta.status(200);
                 resposta.json(clientes);
             })
-            .catch((erro) =>{
+            .catch((erro)=>{
                 resposta.status(500);
                 resposta.json({
                     "status":false,
                     "mensagem": "Não foi possível consultar os clientes! " + erro.message
                 })
             })
+        }
+    }
+}          
+
+// PAREI AQUI!!
         }
         else{
             resposta.status(405);
