@@ -9,8 +9,12 @@ import rotaCliente from './Rotas/rotaClientes.js';
 const host='0.0.0.0';
 const porta = 3000; 
 const app = express(); 
-
-app.use(express.urlencoded({extended: true}));
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true }));
+app.use('/clientes',rotaCliente);
+app.listen(porta, host, () => {
+    console.log(`Servidor rodando em http://${host}:${porta}`);
+});
 
 app.use(session({
     secret: '$&n#@',
@@ -32,11 +36,11 @@ app.post('/login', (requisicao, resposta)=>{
         resposta.redirect('/login.html');
     }
 })
-
+app.use('/clientes', rotaCliente);
 app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
 
 
-app.use('/clientes' , rotaCliente);
+app.use('/controle' , rotaCliente);
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
