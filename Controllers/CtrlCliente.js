@@ -176,11 +176,6 @@ export default class CtrlCliente{
                 })
             })
         }
-    }
-}          
-
-// PAREI AQUI!!
-        }
         else{
             resposta.status(405);
             resposta.json({
@@ -189,5 +184,4 @@ export default class CtrlCliente{
             })
         }
     }
-
 }
