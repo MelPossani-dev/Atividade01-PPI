@@ -11,10 +11,6 @@ const porta = 3000;
 const app = express(); 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
-app.use('/clientes',rotaCliente);
-app.listen(porta, host, () => {
-    console.log(`Servidor rodando em http://${host}:${porta}`);
-});
 
 app.use(session({
     secret: '$&n#@',
