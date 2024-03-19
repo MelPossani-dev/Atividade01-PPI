@@ -36,7 +36,7 @@ app.post('/login', (requisicao, resposta)=>{
 app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
 
 
-app.use('/cliente' , rotaCliente);
+app.use('/clientes' , rotaCliente);
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
