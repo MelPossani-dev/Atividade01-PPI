@@ -5,6 +5,7 @@ const rotaCliente = new Router();
 const ctrlCli = new CtrlCliente();
 
 rotaCliente
+.get('/', ctrlCli.consultar)
 .get('/: termo', ctrlCli.consultar)
 .post('/', ctrlCli.gravar)
 .put('/: codigo', ctrlCli.atualizar)
