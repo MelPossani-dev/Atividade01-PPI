@@ -1,4 +1,4 @@
-import Cliente from "../Modelos/Clientes.js";
+import Clientes from "../Modelos/Clientes.js";
 
 export default class CtrlCliente{
 
@@ -34,15 +34,15 @@ export default class CtrlCliente{
 
             //pseudo validação nos dados
             if (cpf && nome && dt_nasc && cep && endereco && bairro && cidade && estado && telefone && email){
-                const cliente = new Cliente(0, cpf, nome, dt_nasc, cep, endereco, bairro, cidade, estado, telefone, email);
-                cliente.gravar().then(()=>{
+                const cliente = new Clientes(0, cpf, nome, dt_nasc, cep, endereco, bairro, cidade, estado, telefone, email);
+                cliente.gravar().then(()=>{ 
                     resposta.status(201);
                     resposta.json({
                         "status":true,
                         "mensagem": "Cliente gravado com sucesso!",
                         "codigo_cliente": cliente.codigo
                     });
-                }).catch((erro)=>{
+                }).catch((erro) =>{
                     resposta.status(500);
                     resposta.json({
                         "status":false,
@@ -61,18 +61,20 @@ export default class CtrlCliente{
         else{
             resposta.status(405);
             resposta.json({
-            "status":false,
-            "mensagem": "Requisição inválida! Esperando o método POST e dados no formato JSON para gravar um cliente!"
-            });
+                "status":false,
+                "mensagem": "Requisição inválida! Esperando o método POST e dados no formato JSON para gravar um cliente!"
+            })
         }
     }
+
 
     atualizar(requisicao, resposta){
         resposta.type('application/json');
         if ((requisicao.method === "PATCH" || requisicao.method === "PUT") && requisicao.is('application/json')){
             const dados = requisicao.body; //extrair dados do corpo da requisição
             //o código será extraído da url, exemplo: http://localhost:3000/cliente/1  1 é o código
-            const id_cliente = requisicao.params.id_cliente;
+            console.log(dados)
+            const id_cliente = requisicao.params.codigo;
             const cpf = dados.cpf;
             const nome = dados.nome;
             const dt_nasc = dados.dt_nasc;
@@ -85,7 +87,7 @@ export default class CtrlCliente{
             const email = dados.email;
             if (id_cliente && id_cliente > 0 && cpf && nome && dt_nasc && cep && endereco && bairro && cidade && estado && telefone && email)
             {
-                const cliente = new Cliente(id_cliente, cpf, nome, dt_nasc, cep, endereco, bairro, cidade, estado, telefone, email);
+                const cliente = new Clientes(id_cliente, cpf, nome, dt_nasc, cep, endereco, bairro, cidade, estado, telefone, email);
                 cliente.atualizar()
                 .then(()=>{
                     resposta.status(200);
@@ -94,7 +96,7 @@ export default class CtrlCliente{
                         "mensagem": "Cliente atualizado com sucesso!",
                     })
                 })
-                .catch((erro)=>{
+                .catch((erro) =>{
                     resposta.status(500);
                     resposta.json({
                         "status":false,
@@ -121,10 +123,9 @@ export default class CtrlCliente{
     excluir(requisicao, resposta){
         resposta.type('application/json');
         if (requisicao.method === "DELETE"){
-            //o código do cliente que será excluído será extraído da url
-            const id_cliente = requisicao.params.id_cliente;
-            if (id_cliente && id_cliente > 0){
-                const cliente = new Cliente(id_cliente);
+            const codigo = requisicao.params.codigo;
+            if (codigo && codigo > 0){
+                const cliente = new Clientes(codigo);
                 cliente.excluir()
                 .then(()=>{
                     resposta.status(200);
@@ -162,11 +163,11 @@ export default class CtrlCliente{
         resposta.type('application/json');
         if (requisicao.method === "GET"){
             const termoDePesquisa = requisicao.params.termo;
-            const cliente = new Cliente(0);
+            const cliente = new Clientes(0);
             cliente.consultar(termoDePesquisa)
-            .then((clientes)=>{
+            .then((cliente)=>{
                 resposta.status(200);
-                resposta.json(clientes);
+                resposta.json(cliente);
             })
             .catch((erro)=>{
                 resposta.status(500);
@@ -185,3 +186,4 @@ export default class CtrlCliente{
         }
     }
 }
+

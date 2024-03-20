@@ -1,11 +1,11 @@
-import conectar from "./conexao.js"; 
-import Cliente from "../Modelos/Clientes.js";
+import conectar from "../Persistencia/conexao.js"; 
+import Clientes from "../Modelos/Clientes.js";
 
 //DAO - Data Access Object
 export default class ClienteDAO{
 
-    async cadastrar(cliente){
-        if (cliente instanceof Cliente){
+    async gravar(cliente){
+        if (cliente instanceof Clientes){
             const conexao = await conectar();
             const sql = `INSERT INTO cliente (cpf, nome, dt_nasc, cep, endereco, bairro,
                          cidade, estado, telefone, email) 
@@ -29,7 +29,7 @@ export default class ClienteDAO{
  }
 
     async atualizar(cliente) {
-        if (cliente instanceof Cliente) {
+        if (cliente instanceof Clientes) {
             const conexao = await conectar();
             const sql = `UPDATE cliente SET cpf = ?, nome = ?,
                              dt_nasc = ?, cep = ?, endereco = ?,
@@ -55,7 +55,7 @@ export default class ClienteDAO{
         } 
        
     async excluir(cliente){
-        if (cliente instanceof Cliente){
+        if (cliente instanceof Clientes){
             const conexao = await conectar();
             const sql = `DELETE FROM cliente WHERE cpf = ?`;
             const parametros = [
@@ -82,7 +82,7 @@ export default class ClienteDAO{
         const [registros] = await conexao.execute(sql,[termoDePesquisa]);
         let listaClientes = [];
         for (const registro of registros){
-            const cliente = new Cliente(
+            const cliente = new Clientes(
                 registro.id_cliente,
                 registro.cpf,
                 registro.nome,

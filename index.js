@@ -3,23 +3,26 @@ import process from 'process';
 import path from 'path';
 import session from 'express-session';
 import autenticar from './seguranca/autenticar.js';
-import Cliente from './Modelos/Clientes.js';
-import rotaCliente from './Rotas/rotaClientes.js';
+import { error } from 'console';
+import rotaCliente from  './Rotas/rotaClientes.js'; 
+import CtrlCliente from './Controllers/CtrlCliente.js';
 
-const host='0.0.0.0';
-const porta = 3000; 
-const app = express(); 
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true }));
+const host='0.0.0.0'; 
+const porta = 3000;  
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true})); 
 
 app.use(session({
-    secret: '$&n#@',
+   secret: '$&n#@',
     resave: false,
-    saveUninitialized: true,
-    cookie: {  
+   saveUninitialized: true,
+   cookie: {  
         maxAge: 60 * 1000 * 15
-    }
+   }
 }))
+
 
 app.use(express.static(path.join(process.cwd(), 'publico')));
 
@@ -32,18 +35,22 @@ app.post('/login', (requisicao, resposta)=>{
         resposta.redirect('/login.html');
     }
 })
+app.use(express.json());
 app.use('/clientes', rotaCliente);
+
 app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
 
-
-app.use('/controle' , rotaCliente);
+app.use('/controle', rotaCliente);
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+
 
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando em http://${host}:${porta}`);
 })
-const cliente = new Cliente(1,
+
+/*const cliente = new Cliente(1,
                     '299.444.555-00',
                     'Beltrano Fulano da Silva',
                     '05/09/1946',
@@ -59,7 +66,7 @@ const cliente = new Cliente(1,
     console.log('Cadastrado!');
 }).catch((erro) => {
     console.log(erro.message);
-});*/
+});
 
 const clienteQQ = new Cliente();
 
@@ -73,3 +80,4 @@ clienteQQ.consultar('Fulano').then((listaClientes) => {
 }).catch((erro) => {
     console.log(`Nao foi possível encontrar o cliente: ${erro.message}`);
 });
+*/

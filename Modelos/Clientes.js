@@ -1,5 +1,5 @@
 import ClienteDAO from "../Persistencia/ClienteDAO.js";
-export default class Cliente{
+export default class Clientes{
     #id_cliente;
     #cpf
     #nome;
@@ -94,9 +94,9 @@ export default class Cliente{
     }
     
     // Armazenar no banco de dados
-    async cadastrar(){
+    async gravar(){
         const dao = new ClienteDAO();
-        await dao.cadastrar(this);
+        await dao.gravar(this);
     }
     async atualizar(){
         const dao = new ClienteDAO();
